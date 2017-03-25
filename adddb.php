@@ -1,0 +1,31 @@
+<?php
+$con=mysql_connect("localhost","ParthLathiya","parth123@#%")or die("Cannot Connect");
+mysql_select_db("bank")or die("Cannot Select Database");
+($_POST['password']==$_POST['repassword'])or die("Please Enter Same Password");
+($_POST['pin']==$_POST['repin'])or die("Please Enter Same PIN");
+$sal=$_POST['salutation'];
+$fn=$_POST['firstname'];
+$ln=$_POST['lastname'];
+$bday=$_POST['dateofbirth'];
+$email=$_POST['email'];
+$pan=$_POST['pan'];
+$occupation=$_POST['occupation'];
+$education=$_POST['education'];
+$aadharid=$_POST['aadharid'];
+$gender=$_POST['gender'];
+$maritalstatus=$_POST['maritalstatus'];
+$mobile=$_POST['mobile'];
+$username=$_POST['username'];
+$password=$_POST['password'];
+$pin=$_POST['pin'];
+$accountno=mt_rand();
+$secretkey=mt_rand();
+$question=$_POST['question'];
+$answer=$_POST['answer'];
+date_default_timezone_set("Asia/Kolkata");
+$timed=date("Y-m-d h:i:s");
+mysql_query("INSERT INTO `reg321@#%` VALUES('$sal','$fn','$ln','$bday','$email','$pan','$occupation','$education','$aadharid','$gender','$maritalstatus','$mobile','$username','$password','$pin','$accountno','$secretkey','$question','$answer')")or die("Query failed ". mysql_error());
+mysql_query("INSERT INTO `bal123@#%` VALUES ('$accountno','$username','$secretkey',5000,'$timed')")or die("Query failed ". mysql_error());
+header('Location:internetbanking.php?id=You registerd Successfully ');
+mysql_close($con);
+?>
